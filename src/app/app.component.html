@@ -1,0 +1,16 @@
+<div style="text-align: center;">
+    <div>
+        <h4>Angular Record RTC Demo</h4>
+    </div>
+    <div>
+        <button class="start-recording" *ngIf="!isRecording && !blobUrl" (click)="startRecording()">Start Recording</button>
+        <button class="stop-recording" *ngIf="isRecording && !blobUrl" (click)="stopRecording()">Stop Recording</button>
+        <button class="cancel-recording" *ngIf="!isRecording && blobUrl" (click)="clearRecordedData()">Clear Recording</button>
+        <div *ngIf="isRecording && !blobUrl"> {{recordedTime}} </div>
+        <div>
+        <audio *ngIf="!isRecording && blobUrl"  controls>
+          <source [src]="blobUrl" type="audio/webm">
+        </audio>
+        </div>
+      </div>
+</div>
